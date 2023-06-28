@@ -20,6 +20,9 @@ if (!token) {
       ausencias.shift()
 
       ausencias.map((ausencia) => {
+
+       
+
         listAusencia.innerHTML += `
 
         <div class="ausenciaItem">

@@ -40,6 +40,7 @@ if (!token) {
       }
 
     },
+    sources: ['local'],
   }, (err, result) => {
     if (!err && result && result.event === 'success') {
       console.log('Imagen subida con éxito', result.info);
@@ -52,7 +53,9 @@ if (!token) {
       const formAusencia = document.getElementById("formAusencia")
 
 
-      formAusencia.addEventListener('submit', () => {
+      formAusencia.addEventListener('submit', (event) => {
+        event.preventDefault();
+        
         document.getElementById('loading-spinner').style.display = 'block';
         fetch(`https://api-yourdp.onrender.com/user/${userId}/ausencia`, {
           method: 'POST',
@@ -66,7 +69,7 @@ if (!token) {
               motivo: motivo,
               explicacao: explicacao,
               arquivo: imagenSrc,
-              statusAusencia: false
+              
             }
           })
         })
