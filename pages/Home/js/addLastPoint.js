@@ -8,9 +8,10 @@ if (!token) {
   updateTime();
 
 
-  const btnSaida = document.getElementById("button_userSaida")
+  const btnSaida = document.getElementById("formSaida")
 
-  btnSaida.addEventListener('click', () => {
+  btnSaida.addEventListener('submit', (event) => {
+    event.preventDefault();
     fetch(`https://api-yourdp.onrender.com/user/${userId}/updateLastPoint`, {
       method: 'PUT',
       headers: {
@@ -23,6 +24,7 @@ if (!token) {
     })
       .then((res) => res.json())
       .then((data) => {
+        alert("saida atualizada")
         if (data.msg) {
           alert(data.msg)
         }

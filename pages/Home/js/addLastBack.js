@@ -8,9 +8,10 @@ if (!token) {
   updateTime();
 
 
-  const btnVolta = document.getElementById("button_userVolta")
+  const btnVolta = document.getElementById("formVolta")
 
-  btnVolta.addEventListener('click', () => {
+  btnVolta.addEventListener('click', (event) => {
+    event.preventDefault();
     fetch(`https://api-yourdp.onrender.com/user/${userId}/updateBreakLast`, {
       method: 'PUT',
       headers: {
@@ -23,6 +24,7 @@ if (!token) {
     })
       .then((res) => res.json())
       .then((data) => {
+        alert("volta atualizada")
         if (data.msg) {
           alert(data.msg)
         }
