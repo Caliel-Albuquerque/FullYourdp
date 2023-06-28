@@ -65,7 +65,8 @@ if (!token) {
               dia: dia,
               motivo: motivo,
               explicacao: explicacao,
-              arquivo: imagenSrc
+              arquivo: imagenSrc,
+              statusAusencia: false
             }
           })
         })
